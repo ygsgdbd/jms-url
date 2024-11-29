@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/sonner"
 import { IntlProviderWrapper } from '@/components/intl-provider';
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
+import Script from "next/script";
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -105,25 +106,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh" suppressHydrationWarning>
-      <head />
+      <html lang="zh" suppressHydrationWarning>
+      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6655068558450325"
+              crossOrigin="anonymous"></Script>
       <body className={ibmPlexMono.className}>
-        <IntlProviderWrapper>
+      <IntlProviderWrapper>
           <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
           >
-            <div className="relative flex min-h-screen flex-col">
-              <NavBar />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
-            <Toaster />
+              <div className="relative flex min-h-screen flex-col">
+                  <NavBar/>
+                  <main className="flex-1">{children}</main>
+                  <Footer/>
+              </div>
+              <Toaster/>
           </ThemeProvider>
-        </IntlProviderWrapper>
+      </IntlProviderWrapper>
       </body>
-    </html>
+      </html>
   );
 }
