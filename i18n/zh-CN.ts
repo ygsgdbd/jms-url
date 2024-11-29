@@ -22,5 +22,7 @@ export default {
   'actions.generated': '已生成链接并复制到剪贴板',
   'actions.generatedOnly': '已生成链接',
   'result.title': '调整后的订阅链接',
-  'result.description': '如需重置链接，请修改你的服务密码'
+  'result.description': '如需重置链接，请修改你的服务密码',
+  'security.title': '安全说明',
+  'security.description': '本工具仅在浏览器本地运行，不会收集或上传您的订阅链接。所有操作都在您的设备上完成，源代码完全开放。'
 }; 

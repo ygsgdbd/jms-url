@@ -22,5 +22,7 @@ export default {
   'actions.generated': 'Link generated and copied to clipboard',
   'actions.generatedOnly': 'Link generated',
   'result.title': 'Adjusted Subscription Link',
-  'result.description': 'To reset the link, please change your service password'
+  'result.description': 'To reset the link, please change your service password',
+  'security.title': 'Security Notice',
+  'security.description': 'This tool runs entirely in your browser and does not collect or upload your subscription links. All operations are performed locally on your device. The source code is fully open.'
 }; 

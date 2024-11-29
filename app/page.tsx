@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Copy, Link, Settings, Server, CheckCircle2, Globe, Ban } from "lucide-react";
+import { Copy, Link, Settings, Server, CheckCircle2, Globe, Ban, Shield } from "lucide-react";
 import { toast } from 'sonner';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Switch } from "@/components/ui/switch";
@@ -65,20 +65,30 @@ export default function Home() {
     if (!copyState.value) return;  // 初始状态不处理
     
     if (copyState.error) {
-      toast.error(formatMessage({ id: 'toast.copyFailed' }));
+      toast.error(formatMessage({ id: 'actions.copyFailed' }));
     } else {
-      toast.success(formatMessage({ id: result === copyState.value ? 'toast.copied' : 'toast.generated' }));
+      toast.success(formatMessage({ 
+        id: result === copyState.value ? 'actions.copied' : 'actions.generated' 
+      }));
     }
   }, [copyState, formatMessage, result]);
 
   const onSubmit = async (data: FormValues) => {
     const url = new URL(data.baseUrl);
-    if (data.excludeShadowsocks) url.searchParams.append('noss', '1');
-    if (data.excludeVmess) url.searchParams.append('novmess', '1');
+    
+    // 清除可能已存在的参数
+    url.searchParams.delete('noss');
+    url.searchParams.delete('novmess');
+    url.searchParams.delete('exclude');
+    url.searchParams.delete('usedomains');
+    
+    // 重新添加参数
+    if (data.excludeShadowsocks) url.searchParams.set('noss', '1');
+    if (data.excludeVmess) url.searchParams.set('novmess', '1');
     if (data.excludedServers.length > 0) {
-      url.searchParams.append('exclude', data.excludedServers.sort((a, b) => a - b).join(','));
+      url.searchParams.set('exclude', data.excludedServers.sort((a, b) => a - b).join(','));
     }
-    if (data.useDomains) url.searchParams.append('usedomains', '1');
+    if (data.useDomains) url.searchParams.set('usedomains', '1');
 
     const finalLink = url.href;
     setResult(finalLink);
@@ -92,15 +102,27 @@ export default function Home() {
       <div className="max-w-screen-sm mx-auto">
         <Card>
           <CardHeader>
-            <CardTitle className="text-center flex items-center justify-center gap-2">
+            <CardTitle className="text-center flex flex-col sm:flex-row items-center justify-center gap-2">
               <Link className="h-5 w-5" />
-              <FormattedMessage id="app.title" />
+              <span><FormattedMessage id="app.title" /></span>
             </CardTitle>
           </CardHeader>
+
           <CardContent className="space-y-6">
-            <p className={descriptionClass}>
-              <FormattedMessage id="app.description" />
-            </p>
+            <div className="space-y-3">
+              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded-md">
+                <div className="px-3.5 py-2.5 flex items-start gap-2">
+                  <Shield className="h-3.5 w-3.5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+                  <p className="text-xs leading-relaxed text-blue-600 dark:text-blue-300">
+                    <FormattedMessage id="security.description" />
+                  </p>
+                </div>
+              </div>
+
+              <p className={descriptionClass}>
+                <FormattedMessage id="app.description" />
+              </p>
+            </div>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div className="space-y-2">

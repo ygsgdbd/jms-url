@@ -22,5 +22,7 @@ export default {
   'actions.generated': '已生成鏈接並複製到剪貼板',
   'actions.generatedOnly': '已生成鏈接',
   'result.title': '調整後的訂閱鏈接',
-  'result.description': '如需重置鏈接，請修改你的服務密碼'
+  'result.description': '如需重置鏈接，請修改你的服務密碼',
+  'security.title': '安全說明',
+  'security.description': '本工具僅在瀏覽器本地運行，不會收集或上傳您的訂閱鏈接。所有操作都在您的設備上完成，源代碼完全開放。'
 }; 

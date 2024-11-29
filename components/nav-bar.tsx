@@ -13,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Globe } from "lucide-react"
+import { Logo } from "@/components/logo"
 
 export function NavBar() {
   const { locale, setLocale } = useContext(LocaleContext)
@@ -27,50 +28,45 @@ export function NavBar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
-        <div className="mr-4 flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-              <path d="M12 6l0 12" />
-              <path d="M8 12l8 0" />
-            </svg>
-            <span className="font-bold">JMS URL</span>
-          </Link>
+      <div className="container flex h-14 items-center justify-between">
+        <div className="flex items-center">
+          <Logo />
         </div>
 
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <nav className="flex items-center gap-2">
-            <Button variant="ghost" size="sm" asChild>
-              <Link href="https://github.com/ygsgdbd/jmsurl" target="_blank" rel="noreferrer">
-                <Github className="h-4 w-4 mr-2" />
-                GitHub
-              </Link>
-            </Button>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="w-auto px-2">
-                  <Globe className="h-4 w-4 mr-2" />
-                  <span className="mr-1">{currentLocale.emoji}</span>
-                  <span className="hidden sm:inline-block">{currentLocale.name}</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                {Object.entries(localeNames).map(([key, { name, emoji }]) => (
-                  <DropdownMenuItem
-                    key={key}
-                    onClick={() => setLocale(key as keyof typeof localeNames)}
-                  >
-                    <span className="mr-2">{emoji}</span>
-                    <span>{name}</span>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <ModeToggle />
-          </nav>
-        </div>
+        <nav className="flex items-center gap-1 sm:gap-2">
+          <Button variant="ghost" size="sm" className="hidden sm:inline-flex" asChild>
+            <Link href="https://github.com/ygsgdbd/jms-url" target="_blank" rel="noreferrer">
+              <Github className="h-4 w-4 mr-2" />
+              GitHub
+            </Link>
+          </Button>
+          <Button variant="ghost" size="icon" className="sm:hidden" asChild>
+            <Link href="https://github.com/ygsgdbd/jms-url" target="_blank" rel="noreferrer">
+              <Github className="h-4 w-4" />
+            </Link>
+          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="sm" className="h-8">
+                <Globe className="h-4 w-4 mr-2" />
+                <span>{currentLocale.emoji}</span>
+                <span className="ml-2 hidden sm:inline-block">{currentLocale.name}</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              {Object.entries(localeNames).map(([key, { name, emoji }]) => (
+                <DropdownMenuItem
+                  key={key}
+                  onClick={() => setLocale(key as keyof typeof localeNames)}
+                >
+                  <span className="mr-2">{emoji}</span>
+                  <span>{name}</span>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <ModeToggle />
+        </nav>
       </div>
     </header>
   )
