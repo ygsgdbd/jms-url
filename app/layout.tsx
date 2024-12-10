@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   title: 'JMS URL - JustMySocks 订阅链接微调工具',
   description: '快速微调你的 JustMySocks 订阅链接，轻松排除不需要的节点或协议',
   keywords: ['JustMySocks', 'subscription', 'link', 'tweaker', 'jmsurl', 'jms', 'url'],
-  authors: [{ name: 'Rainbow', url: 'https://jmsurl.top' }],
-  creator: 'Rainbow',
-  publisher: 'Rainbow',
+  authors: [{ name: 'ygsgdbd', url: 'https://github.com/ygsgdbd' }],
+  creator: 'ygsgdbd',
+  publisher: 'ygsgdbd',
   formatDetection: {
     email: false,
     address: false,
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     title: 'JMS URL - JustMySocks 订阅链接微调工具',
     description: '快速微调你的 JustMySocks 订阅链接，轻松排除不需要的节点或协议',
     images: ['https://jmsurl.top/og-image.png'],
-    creator: '@rainbow',
+    creator: '@ygsgdbd',
     site: '@jmsurl',
   },
   other: {
@@ -88,15 +88,6 @@ export const metadata: Metadata = {
         color: '#000000',
       },
     ],
-  },
-  manifest: '/site.webmanifest',
-  verification: {
-    google: 'your-google-site-verification',
-    yandex: 'your-yandex-verification',
-    yahoo: 'your-yahoo-verification',
-    other: {
-      'baidu-site-verification': 'your-baidu-verification',
-    },
   },
 };
 

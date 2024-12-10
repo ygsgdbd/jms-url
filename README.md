@@ -1,4 +1,8 @@
-# JustMySocks 订阅链接配置工具
+# 🔗 JMS URL
+
+A tool for tweaking JustMySocks subscription links - easily exclude unwanted nodes or protocols.
+
+[中文文档](#-jms-url-订阅链接微调工具) | English
 
 [![Deploy](https://img.shields.io/github/deployments/ygsgdbd/jms-url/production?label=vercel&logo=vercel&logoColor=white)](https://jmsurl.top)
 [![License](https://img.shields.io/github/license/ygsgdbd/jms-url)](LICENSE)
@@ -10,40 +14,68 @@
 [![Contributors](https://img.shields.io/github/contributors/ygsgdbd/jms-url)](https://github.com/ygsgdbd/jms-url/graphs/contributors)
 [![Last Commit](https://img.shields.io/github/last-commit/ygsgdbd/jms-url)](https://github.com/ygsgdbd/jms-url/commits/main)
 
-一个用于配置和调整 JustMySocks 订阅链接的工具。完全在浏览器中运行，不会上传任何数据，保护您的订阅安全。
+## ✨ Features
 
-## ✨ 特点
+- 🎯 Filter nodes by keywords
+- 🔄 Convert between different proxy protocols
+- 🌐 Support for multiple subscription formats
+- 🎨 Dark/Light mode support
+- 🌍 i18n support (English/Chinese)
 
-- **安全性优先**
-  - 纯浏览器运行，无后端服务
-  - 支持离线使用
-  - 不会上传或存储任何数据
-
-- **功能完整**
-  - 支持排除特定协议（SS/Vmess）
-  - 支持排除指定节点
-  - 支持域名/IP 切换
-  - 一键复制生成的链接
-
-- **用户友好**
-  - 简洁直观的界面
-  - 支持亮色/暗色主题
-  - 多语言支持
-    - 中文
-    - English
-
-## 🛠 快速开始
-
-1. 访问 [JMS URL Generator](https://jmsurl.top)
-2. 粘贴基础订阅链接
-3. 按需配置选项
-4. 点击生成并复制新链接
-
-## 💻 本地开发
+## 🚀 Getting Started
 
 ```bash
-# 克隆项目
+# Clone the repository
 git clone https://github.com/ygsgdbd/jms-url.git
+
+# Navigate to the project directory
+cd jms-url
+
+# Install dependencies
+pnpm install
+
+# Start the development server
+pnpm dev
+```
+
+Visit `http://localhost:3000` to see the application.
+
+## 🛠️ Built With
+
+- [Next.js](https://nextjs.org/) - The React Framework
+- [Tailwind CSS](https://tailwindcss.com/) - For styling
+- [shadcn/ui](https://ui.shadcn.com/) - UI components
+
+## 📝 Get JustMySocks
+
+Don't have a JustMySocks subscription yet? [Sign up here](https://justmysocks.net/members/aff.php?aff=31474) to get started.
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+# 🔗 JMS URL 订阅链接微调工具
+
+一个用于微调 JustMySocks 订阅链接的工具 - 轻松排除不需要的节点或协议。
+
+## ✨ 特性
+
+- 🎯 通过关键词过滤节点
+- 🔄 在不同代理协议之间转换
+- 🌐 支持多种订阅格式
+- 🎨 支持深色/浅色模式
+- 🌍 支持国际化（中文/英文）
+
+## 🚀 开始使用
+
+```bash
+# 克隆仓库
+git clone https://github.com/ygsgdbd/jms-url.git
+
+# 进入项目目录
+cd jms-url
 
 # 安装依赖
 pnpm install
@@ -52,46 +84,18 @@ pnpm install
 pnpm dev
 ```
 
-### 环境要求
-- Node.js 18+
-- pnpm 8+
+访问 `http://localhost:3000` 查看应用。
 
 ## 🛠️ 技术栈
 
-- **框架**
-  - Next.js 14 (App Router)
-  - React
-  - TypeScript
+- [Next.js](https://nextjs.org/) - React 框架
+- [Tailwind CSS](https://tailwindcss.com/) - 样式处理
+- [shadcn/ui](https://ui.shadcn.com/) - UI 组件
 
-- **样式 & UI**
-  - Tailwind CSS
-  - Shadcn/ui
-  - Lucide Icons
+## 📝 获取 JustMySocks
 
-- **表单 & 验证**
-  - React Hook Form
-  - Zod
-
-- **工具链**
-  - pnpm
-  - ESLint
-  - Prettier
-
-## 📝 贡献
-
-欢迎任何形式的贡献，包括但不限于：
-
-- 提交 Issue 报告问题
-- 提交 Pull Request 改进代码
-- 完善文档内容
-- 提出新的功能建议
+还没有 JustMySocks 订阅？[点击这里](https://justmysocks.net/members/aff.php?aff=31474)开始使用。
 
 ## 📝 许可证
 
-[MIT License](LICENSE)
-
-## 🙏 致谢
-
-- [Shadcn/ui](https://ui.shadcn.com/)
-- [Next.js](https://nextjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
+本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
