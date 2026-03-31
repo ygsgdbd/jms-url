@@ -34,11 +34,11 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://jmsurl.top'),
+  metadataBase: new URL('https://jmsurl.ygsgdbd.top'),
   openGraph: {
     title: 'JMS URL - JustMySocks 订阅链接微调工具',
     description: '快速微调你的 JustMySocks 订阅链接，轻松排除不需要的节点或协议',
-    url: 'https://jmsurl.top',
+    url: 'https://jmsurl.ygsgdbd.top',
     siteName: 'JMS URL',
     locale: 'zh_CN',
     type: 'website',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'JMS URL - JustMySocks 订阅链接微调工具',
     description: '快速微调你的 JustMySocks 订阅链接，轻松排除不需要的节点或协议',
-    images: ['https://jmsurl.top/og-image.png'],
+    images: ['https://jmsurl.ygsgdbd.top/og-image.png'],
     creator: '@ygsgdbd',
     site: '@jmsurl',
   },
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     'format-detection': 'telephone=no',
   },
   alternates: {
-    canonical: 'https://jmsurl.top',
+    canonical: 'https://jmsurl.ygsgdbd.top',
   },
   icons: {
     icon: [

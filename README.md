@@ -4,7 +4,7 @@ A tool for tweaking JustMySocks subscription links - easily exclude unwanted nod
 
 [中文文档](#-jms-url-订阅链接微调工具) | English
 
-[![Deploy](https://img.shields.io/github/deployments/ygsgdbd/jms-url/production?label=vercel&logo=vercel&logoColor=white)](https://jmsurl.top)
+[![Deploy](https://img.shields.io/github/deployments/ygsgdbd/jms-url/production?label=vercel&logo=vercel&logoColor=white)](https://jmsurl.ygsgdbd.top)
 [![License](https://img.shields.io/github/license/ygsgdbd/jms-url)](LICENSE)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.2.2-blue?logo=typescript)
 ![Next.js](https://img.shields.io/badge/Next.js-14.0.0-black?logo=next.js)
