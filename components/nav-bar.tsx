@@ -14,17 +14,12 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Globe } from "lucide-react"
 import { Logo } from "@/components/logo"
+import { defaultLocale, localeConfig, type Locale } from "@/lib/locale"
 
 export function NavBar() {
   const { locale, setLocale } = useContext(LocaleContext)
-
-  const localeNames = {
-    'zh-CN': { name: '简体中文', emoji: '🇨🇳' },
-    'zh-TW': { name: '繁體中文', emoji: '🇹🇼' },
-    'en': { name: 'English', emoji: '🇺🇸' }
-  }
-
-  const currentLocale = localeNames[locale as keyof typeof localeNames]
+  const currentLocale = localeConfig[locale] ?? localeConfig[defaultLocale]
+  const localeEntries = Object.entries(localeConfig) as [Locale, (typeof localeConfig)[Locale]][]
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -54,10 +49,10 @@ export function NavBar() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              {Object.entries(localeNames).map(([key, { name, emoji }]) => (
+              {localeEntries.map(([key, { name, emoji }]) => (
                 <DropdownMenuItem
                   key={key}
-                  onClick={() => setLocale(key as keyof typeof localeNames)}
+                  onClick={() => setLocale(key)}
                 >
                   <span className="mr-2">{emoji}</span>
                   <span>{name}</span>

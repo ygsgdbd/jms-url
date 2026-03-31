@@ -1,16 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
-import { IBM_Plex_Mono } from "next/font/google";
+import { Geist_Mono, IBM_Plex_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner"
 import { IntlProviderWrapper } from '@/components/intl-provider';
 import { NavBar } from "@/components/nav-bar"
 import { Footer } from "@/components/footer"
 import Script from "next/script";
+import { headers } from "next/headers";
+import { resolveLocale } from "@/lib/locale";
 
 const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin']
 });
 
 export const viewport: Viewport = {
@@ -91,17 +93,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const requestHeaders = await headers();
+  const initialLocale = resolveLocale(requestHeaders.get("accept-language"));
+
   return (
-      <html lang="zh" suppressHydrationWarning>
-      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6655068558450325"
-              crossOrigin="anonymous"></Script>
+      <html lang={initialLocale} suppressHydrationWarning>
       <body className={ibmPlexMono.className}>
-      <IntlProviderWrapper>
+      <IntlProviderWrapper initialLocale={initialLocale}>
           <ThemeProvider
               attribute="class"
               defaultTheme="system"
@@ -116,6 +119,11 @@ export default function RootLayout({
               <Toaster/>
           </ThemeProvider>
       </IntlProviderWrapper>
+      <Script
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6655068558450325"
+        strategy="afterInteractive"
+        crossOrigin="anonymous"
+      />
       </body>
       </html>
   );
